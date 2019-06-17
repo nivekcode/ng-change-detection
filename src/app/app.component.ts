@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {interval} from 'rxjs';
+import {take} from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ng-change-detection';
+
+  someStream$ = interval(1000).pipe(take(5));
+  initText = 'this is some text ';
+  someText: string;
+  counter = 0;
+
+  updateSomeText(): void {
+    this.counter++;
+    this.someText = this.initText + this.counter;
+  }
 }
