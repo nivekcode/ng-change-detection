@@ -1,9 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
-.blue {
+.blue ::ng-deep {
   background: blue;
 }
 
-.red {
+.red ::ng-deep {
   background: red;
 }
